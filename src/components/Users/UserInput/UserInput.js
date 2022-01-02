@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import UserForm from './UserForm';
 import Modal from '../../UI/Modal';
@@ -52,7 +52,7 @@ export default function UserInput(props) {
     }
 
     return (
-        <div>
+        <Fragment>
             {errorMessage && <Modal onCloseModal={closeModal} errorMessage={errorMessage} />}
             <UserForm
                 enteredAge={enteredAge}
@@ -61,7 +61,7 @@ export default function UserInput(props) {
                 usernameChangeHandler={usernameChangeHandler}
                 ageChangeHandler={ageChangeHandler}
             />
-        </div>
+        </Fragment>
     )
 
 }

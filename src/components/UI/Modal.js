@@ -1,7 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import styles from './Modal.module.css';
 import Button from '../UI/Button'
 
-export default function Modal(props) {
+const ModalOverlay = props => {
     return (
         <div className={styles.modal} onClick={props.onCloseModal}>
             <div className={styles['modal-content']}>
@@ -16,5 +19,20 @@ export default function Modal(props) {
                 </footer>
             </div>
         </div>
+    )
+}
+
+export default function Modal(props) {
+    return (
+        <React.Fragment>
+            {ReactDOM.createPortal(
+                <ModalOverlay
+                    onClick={props.onCloseModal}
+                    errorMessage={props.errorMessage}
+                    onCloseModal={props.onCloseModal}
+                />,
+                document.getElementById('modal-root')
+            )}
+        </React.Fragment>
     )
 }

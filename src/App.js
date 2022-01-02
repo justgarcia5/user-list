@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import UserInput from './components/Users/UserInput/UserInput';
 import UserList from './components/Users/UserList/UserList';
+import Wrapper from './components/Helpers/Wrapper'
 
 function App() {
     const [users, setUsers] = useState([
@@ -28,10 +29,10 @@ function App() {
     }
 
     return (
-        <div>
+        <Wrapper>
             <UserInput onUpdateUsers={updateUsers} />
             <UserList users={users} onDeleteUser={deleteUser} />
-        </div>
+        </Wrapper>
     );
 }
 
